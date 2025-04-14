@@ -4,7 +4,7 @@ services:
     container_name: iss-loc
     volumes:
       - type: bind
-        source: /Users/nmagee/Development/sandbox/jokester/data
+        source: ${PWD}/data
         target: /data
 
 
