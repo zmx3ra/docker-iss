@@ -1,0 +1,13 @@
+services:
+  my-container:
+    image: iss-loc
+    container_name: iss-loc
+    volumes:
+      - type: bind
+        source: /Users/nmagee/Development/sandbox/jokester/data
+        target: /data
+
+
+
+
+

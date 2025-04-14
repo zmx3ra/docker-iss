@@ -2,22 +2,27 @@ import requests
 import json
 import datetime
 
-response = requests.get("http://api.open-notify.org/iss-now.json")
+url = "http://api.open-notify.org/iss-now.json"
 
-obj = response.json()
+response = requests.get(url)
 
-timestamp = obj['timestamp']
+r = response.json()
 
+timestamp = r['timestamp']
+# convert timestamp to human readable date and time (out of epoch)
 datetime = datetime.datetime.fromtimestamp(timestamp)
-dtime = datetime.strftime("%m/%d/%Y-%H:%M:%S")
-long = obj['iss_position']['longitude']
-lat = obj['iss_position']['latitude']
+dtime = datetime.strftime('%Y-%m-%d-%H:%M:%S')
+
+long = r['iss_position']['longitude']
+lat = r['iss_position']['latitude']
 
 print(dtime)
 print(long)
 print(lat)
 
-lines = [dtime, "\n", long, "\n", lat]
+lines = [dtime, "\n",long, "\n", lat]
 
-with open("/data/output.txt", "w") as file:
-    file.writelines(lines)
+with open('/data/output.txt', 'w') as f:
+    f.writelines(lines)
+
+# container needs a place to write and store output
