@@ -200,3 +200,5 @@ docker pull ghcr.io/USERNAME/iss-demo:1.X
 Submit a single URL for this lab: From your repository page in GitHub, find the "Packages" section in the lower right-hand navigation, and click into it. Paste the URL for that page for grading.
 
 It should look something like this: **https://github.com/uvasds-systems/docker-iss/pkgs/container/docker-iss**
+
+> **BONUS**: Assuming your container image builds successfully and is available publicly via **`ghcr.io`**, what Docker command would be required to run the container successfully on your local workstation?
