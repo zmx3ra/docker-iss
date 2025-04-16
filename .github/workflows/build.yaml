@@ -49,12 +49,3 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-
-  clean-up:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: frankdejonge/use-container-cleanup@0.1.0
-        with:
-          package: docker-iss
-          versions: 5
-          token: ${{ secrets.GITHUB_PAT }}
