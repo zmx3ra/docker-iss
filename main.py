@@ -49,7 +49,9 @@ def write_to_mongo(dtime, long, lat):
             
         connection_string = f'mongodb+srv://docker:{dbpass}@cluster0.m3fek.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
         client = MongoClient(connection_string)
-        db = client['iss_location']
+
+        # use your UVA computing ID for the database name
+        db = client['mst3k']
         collection = db['locations']
         collection.insert_one({'timestamp': dtime, 'longitude': long, 'latitude': lat})
         logger.info('Output written to MongoDB')
