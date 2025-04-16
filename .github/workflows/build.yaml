@@ -49,3 +49,15 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ghcr-io-cleanup-action@main
+        with:
+          token: ${{ secrets.GHCR_PAT }}
+          repository-owner: uvasds-systems
+          repository-name: docker-iss
+          package-name: docker-iss
+          delete-untagged: true
+          keep-at-most: 5 # Keep only the latest 5 tagged images
