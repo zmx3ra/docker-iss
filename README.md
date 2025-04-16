@@ -3,6 +3,8 @@
 Container images can be built by hand or by using automated tools. In this lab you will enable automated container builds and learn how the process works.
 
 > **NOTE**: To complete this lab you must first fork this repository: **`https://github.com/uvasds-systems/docker-iss`**. All work you complete in this lab will be using code from your fork of the repository, and pushing your changes to your fork. Do not submit Pull Requests upstream.
+>
+> [**Fork Me**](https://github.com/uvasds-systems/docker-iss/fork)
 
 Find a bug in this lab? Email nem2p@virginia.edu.
 
