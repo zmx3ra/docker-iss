@@ -70,10 +70,16 @@ The better method for creating container images is to automate it using a `Docke
     - The third line runs `pip install -r requirements.txt` to be sure all of your Python dependencies are installed.
     - The final line is the default command that should execute whenever the container is run. In this case it runs the `main.py` script against the Python interpreter.
 
+2.  Test your build locally:
+
+    ```
+    docker build -t MY-CONTAINER .
+    ```
+
 
 ## Automate Builds with GitHub Actions
 
-2. **Review your workflow**
+3. **Review your workflow**
    
     Open the `.github/workflows/build.yml` file and read its contents. There's a lot more to point out here, but these are the essential blocks of logic:
 
@@ -86,7 +92,7 @@ The better method for creating container images is to automate it using a `Docke
         - The sixth step is the heart of the logic, which builds the container image itself. Notice that it will be built for two different platforms (computer chips), `amd64` and `arm64`. The ensures the container can run on any modern computer.
         - The final step returns any build output we should know about.
 
-3. **Edit the** `.github/workflows/build.yaml` **file**
+4. **Edit the** `.github/workflows/build.yaml` **file**
 
     Just below the `on:` line, add `workflow_dispatch:` (with the colon) and indent it to match the `push` line. It should look like this when complete (including indentations)
 
@@ -106,7 +112,7 @@ The better method for creating container images is to automate it using a `Docke
 
     Add these changes to your repository, commit the file, but do not yet push back to GitHub.
 
-4. **Create a GitHub Personal Access Token (PAT)**
+5. **Create a GitHub Personal Access Token (PAT)**
 
     In order to sign into the GHCR on your behalf, your GitHub Action needs a token with the right permissions. Here are the steps to create and store that:
 
@@ -125,7 +131,7 @@ The better method for creating container images is to automate it using a `Docke
 
     E. You will get an email confirming that a new PAT has been created in your account.
 
-5. **Create a Repository Secret using your PAT**
+6. **Create a Repository Secret using your PAT**
 
     Return to your forked repository in the GitHub website.
 
@@ -139,7 +145,7 @@ The better method for creating container images is to automate it using a `Docke
 
     E. Your GitHub Action workflow is now ready to use this secret.
 
-6. **Enable workflows for your repository**
+7. **Enable workflows for your repository**
 
     Finally, click on the ACTIONS tab of your repository. This is where you can see past runs of your workflow as well as current/pending runs.
 
