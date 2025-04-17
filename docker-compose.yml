@@ -1,12 +1,9 @@
 services:
   my-container:
-    image: iss-loc
+    image: ghcr.io/uvasds-systems/docker-iss:1.23
     container_name: iss-loc
-    volumes:
-      - type: bind
-        source: ${PWD}/data
-        target: /data
-
+    environment:
+      - MONGOPASS=${MONGOPASS}
 
 
 
