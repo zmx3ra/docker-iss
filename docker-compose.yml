@@ -1,6 +1,7 @@
 services:
   my-container:
-    image: ghcr.io/uvasds-systems/docker-iss:1.23
+    image: ghcr.io/uvasds-systems/docker-iss:latest
+    pull_policy: always
     container_name: iss-loc
     environment:
       - MONGOPASS=${MONGOPASS}
