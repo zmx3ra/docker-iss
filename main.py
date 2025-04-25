@@ -5,6 +5,8 @@ import logging
 import os
 from pymongo import MongoClient
 
+MONGOPASS="20oRGqjmo88JOF0k"
+
 """
     This script is used to get the current location of the ISS from the Open Notify API 
       and write it to a MongoDB database.
@@ -65,7 +67,7 @@ def write_to_mongo(dtime, long, lat):
         client = MongoClient(connection_string)
 
         # use your UVA computing ID for the database name
-        db = client['mst3k']
+        db = client['zmx3ra']
         collection = db['locations']
         collection.insert_one({'timestamp': dtime, 'longitude': long, 'latitude': lat})
         logger.info('Output written to MongoDB')
